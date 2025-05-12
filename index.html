@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>新中物業 維修預約系統</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial; max-width: 800px; margin: 20px auto; background: #f5f5f5; }
+        .header { background: #9b1c31; color: white; padding: 15px; text-align: center; }
+        .form-group { margin: 15px 0; padding: 10px; background: white; border-radius: 5px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px; }
+        .required::after { content: "*"; color: red; }
+        .btn { width: 100%; padding: 10px; background: #9b1c31; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 20px; }
+        .btn:hover { background: #7a1426; }
+        .footer { position: fixed; bottom: 0; left: 0; width: 100%; background: #e0e0e0; padding: 10px; display: flex; justify-content: space-between; }
+        .nav-btn { flex: 1; padding: 10px; text-align: center; cursor: pointer; }
+        .active { background: #9b1c31; color: white; }
+    </style>
+</head>
+<body>
+    <div class="header"><h1>維修預約</h1></div>
+
+    <form id="workOrderForm">
+        <div class="form-group">
+            <label class="required">申請單位</label>
+            <input value="新中" readonly>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">經辦人</label>
+            <input id="handler" required>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">聯絡電話</label>
+            <input type="tel" id="phone" placeholder="請輸入電話號碼" required>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">地點</label>
+            <select id="location" required>
+                <option>選擇部門</option>
+                <option>營運部</option>
+                <option>財務部</option>
+                <option>人力資源部</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">所在樓層</label>
+            <input id="floor" required>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">預約維修日期</label>
+            <input type="date" id="date" required>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">問題描述</label>
+            <textarea id="description" rows="4" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn">預約</button>
+    </form>
+
+    <div class="footer">
+        <div class="nav-btn active">預約</div>
+        <div class="nav-btn">記錄</div>
+    </div>
+
+    <script>
+        document.getElementById('workOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('預約成功！');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
